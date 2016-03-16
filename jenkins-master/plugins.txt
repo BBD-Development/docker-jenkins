@@ -1,0 +1,9 @@
+token-macro 1.11
+credentials 1.24
+plain-credentials 1.1
+scm-api 1.0
+git-client 1.19.0
+git 2.4.0
+github-api 1.69
+github 1.17.1
+publish-over-ssh 1.13

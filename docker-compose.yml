@@ -1,0 +1,15 @@
+version: "2"
+services:
+  jenkinsmaster:
+   build: jenkins-master
+   volumes:
+    - ./jenkinsdata:/var/jenkins_home
+    - ./jenkinslog:/var/log/jenkins
+   ports:
+    - "50000:50000"
+  nginx:
+   build: nginx
+   ports:
+    - "80:80"
+   links:
+    - jenkinsmaster:jenkins-master
