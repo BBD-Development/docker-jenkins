@@ -5,10 +5,17 @@ ENV LANG=en_US.UTF-8
 
 # Prep Jenkins Directories
 USER root
-# RUN mkdir /var/log/jenkins
-RUN mkdir /var/cache/jenkins
-# RUN chown -R jenkins:jenkins /var/log/jenkins
-RUN chown -R jenkins:jenkins /var/cache/jenkins
+# Refs: 
+# https://forums.docker.com/t/how-to-run-docker-inside-a-container-running-on-docker-for-mac/16268/2
+# http://container-solutions.com/running-docker-in-jenkins-in-docker/
+
+RUN mkdir /var/cache/jenkins \
+      && chown -R jenkins:jenkins /var/cache/jenkins \ 
+      && apt-get update -qq \
+      && apt-get -y install docker.io \
+      && apt-get install -y sudo \
+      && rm -rf /var/lib/apt/lists/*
+RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 USER jenkins
 
 # Set list of plugins to download / update in plugins.txt like this
