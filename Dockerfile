@@ -1,6 +1,8 @@
 FROM jenkins:1.651.3
 MAINTAINER Stephen Doxsee
 
+RUN echo $HOME
+
 ENV LANG=en_US.UTF-8
 
 # Prep Jenkins Directories
@@ -35,8 +37,6 @@ USER jenkins
 # NOTE : All plugins need to be listed as there is no transitive dependency resolution.
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
-
-RUN echo $HOME
 
 # Set Defaults
 ENV JAVA_OPTS="-Xmx8192m"
