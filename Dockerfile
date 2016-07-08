@@ -1,8 +1,6 @@
 FROM jenkins:1.651.3
 MAINTAINER Stephen Doxsee
 
-RUN echo $HOME
-
 ENV LANG=en_US.UTF-8
 
 # Prep Jenkins Directories
@@ -20,7 +18,6 @@ RUN mkdir /var/cache/jenkins \
       && apt-get update -qq \
       && apt-cache policy docker-engine \
       && apt-get install -y docker-engine \
-      && service docker start \
       && curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose \
       && chmod +x /usr/local/bin/docker-compose \
       && apt-get install -y sudo \
@@ -35,7 +32,7 @@ USER jenkins
 # ...
 # NOTE : Just set pluginID to download latest version of plugin.
 # NOTE : All plugins need to be listed as there is no transitive dependency resolution.
-COPY plugins.txt /usr/share/jenkins/plugins.txt
+ADD plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
 
 # Set Defaults
