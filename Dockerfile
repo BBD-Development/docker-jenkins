@@ -5,14 +5,22 @@ ENV LANG=en_US.UTF-8
 
 # Prep Jenkins Directories
 USER root
-# Refs: 
+# Refs:
 # https://forums.docker.com/t/how-to-run-docker-inside-a-container-running-on-docker-for-mac/16268/2
 # http://container-solutions.com/running-docker-in-jenkins-in-docker/
 
 RUN mkdir /var/cache/jenkins \
-      && chown -R jenkins:jenkins /var/cache/jenkins \ 
+      && chown -R jenkins:jenkins /var/cache/jenkins \
       && apt-get update -qq \
-      && apt-get -y install docker.io \
+      && apt-get install -y apt-transport-https ca-certificates \
+      && apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D \
+      && echo "deb https://apt.dockerproject.org/repo debian-jessie main" > /etc/apt/sources.list.d/docker.list \
+      && apt-get update -qq \
+      && apt-cache policy docker-engine \
+      && apt-get install -y docker-engine \
+      && service docker start \
+      && curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose \
+      && chmod +x /usr/local/bin/docker-compose \
       && apt-get install -y sudo \
       && rm -rf /var/lib/apt/lists/*
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
