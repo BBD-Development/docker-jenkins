@@ -36,6 +36,8 @@ USER jenkins
 COPY plugins.txt /usr/share/jenkins/plugins.txt
 RUN /usr/local/bin/plugins.sh /usr/share/jenkins/plugins.txt
 
+RUN echo $HOME
+
 # Set Defaults
 ENV JAVA_OPTS="-Xmx8192m"
 ENV JENKINS_OPTS="--webroot=/var/cache/jenkins/war"
