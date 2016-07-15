@@ -19,3 +19,4 @@ run-condition 0.10
 parameterized-trigger 2.18
 config-file-provider 2.10.1
 postbuildscript 0.17
+ansicolor 0.4.2
