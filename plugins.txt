@@ -47,3 +47,7 @@ momentjs:1.1.1
 cloudbees-folder:5.12
 branch-api:1.11
 git-server:1.5
+display-url-api:1.2
+pipeline-graph-analysis:1.1
+durable-task:1.12
+maven-plugin:1.480.3
