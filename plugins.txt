@@ -1,22 +1,49 @@
-role-strategy 2.3.0
-token-macro 1.11
-credentials 1.24
-plain-credentials 1.1
-scm-api 1.0
-git-client 1.19.0
-git 2.4.0
-github-api 1.69
-github 1.17.1
-publish-over-ssh 1.13
-configurationslicing 1.45
-jobConfigHistory 2.13
-extended-read-permission 1.0
-embeddable-build-status 1.9
-disable-failed-job 1.15
-jobgenerator 1.22
-conditional-buildstep 1.3.3
-run-condition 0.10
-parameterized-trigger 2.18
-config-file-provider 2.10.1
-postbuildscript 0.17
-ansicolor 0.4.2
+role-strategy:2.3.0
+token-macro:1.11
+credentials:1.24
+plain-credentials:1.1
+scm-api:1.3
+git-client:1.19.0
+git:2.4.0
+github-api:1.69
+github:1.17.1
+publish-over-ssh:1.13
+configurationslicing:1.45
+jobConfigHistory:2.13
+extended-read-permission:1.0
+embeddable-build-status:1.9
+disable-failed-job:1.15
+jobgenerator:1.22
+conditional-buildstep:1.3.3
+run-condition:0.10
+parameterized-trigger:2.18
+config-file-provider:2.10.1
+postbuildscript:0.17
+ansicolor:0.4.2
+workflow-aggregator:2.4
+workflow-cps:2.17
+workflow-support:2.5
+workflow-basic-steps:2.1
+pipeline-input-step:2.1
+pipeline-milestone-step:1.0
+pipeline-build-step:2.2
+pipeline-stage-view:2.0
+workflow-multibranch:2.8
+workflow-durable-task-step:2.4
+workflow-api:2.3
+pipeline-stage-step:2.2
+workflow-scm-step:2.2
+workflow-cps-global-lib:2.3
+workflow-step-api:2.3
+workflow-job:2.6
+structs:1.5
+ace-editor:1.1
+jquery-detached:1.2.1
+script-security:1.23
+mailer:1.18
+handlebars:1.1
+pipeline-rest-api:2.1
+momentjs:1.1.1
+cloudbees-folder:5.12
+branch-api:1.11
+git-server:1.5
